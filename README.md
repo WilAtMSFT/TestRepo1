@@ -65,15 +65,13 @@ The `board` also has an arry `ships` which holds the hits remaining for each `sh
 
 I recommend running the server at this time and going to our battleship enpoint. Hit F12 in the browser and expand the html, you will see the rendered html from the jade template and you will see our hidden json board. [Full diff of changes](https://github.com/WilAtMSFT/battleshipTest/commit/37eed866a5eb438e7ee0d23a91dae8ffc1a54578). Commit 37eed866a5eb438e7ee0d23a91dae8ffc1a54578
 
-Now lets add a grid. Stylesheet gets loaded by the layout.jade template via this line `link(rel='stylesheet', href='/stylesheets/style.css')`. So we will edit the style.css file under public/stylesheets. I am not a css pro and used the example [here][8] stripped down to build the table. Note td and tr are standard [html tags][4]. commit 6b64db3522c16c28d0c06390638f1dfd1abf1a7d
+Now lets add a grid. Stylesheet gets loaded by the layout.jade template via this line `link(rel='stylesheet', href='/stylesheets/style.css')`. So we will edit the style.css file under public/stylesheets. I am not a css pro and used the example [here][8] stripped down to build the table. Note td and tr are standard [html tags][4]. [Changes](https://github.com/WilAtMSFT/battleshipTest/commit/4ddcf6e9516c0daa27f49fd89b87c889aa821179). Commit 4ddcf6e9516c0daa27f49fd89b87c889aa821179
 
-Cool. Time to build some battleship logic. Added java script for the fire method and result returned by this method. Watch it in action in the browser with F12 to see the board changes. commit 5d94ca4b277461d0915fd27811411386b0dd208f
+Cool. Time to build some battleship logic. We are going to write the `fire` function. The [code change](https://github.com/WilAtMSFT/battleshipTest/commit/6fec83cecaa0717ad8e06ff424b17148142d27c8) is hopefully easy enough to follow. Watch it in action in the browser with F12 to see the board changes. Commit 6fec83cecaa0717ad8e06ff424b17148142d27c8
 
-Lets make the grid work and make the messaging on the page nicer. commit ???
+Finally, lets make the grid work and make the messaging on the page nicer. The main thing here is to pass the cells to `res.render` and then update the battleship.jade template to check cell values and set grid cell background color based on cell state. I also took this chance to clean up the up the messaging at the top of the battleship webpage. [Full changes](https://github.com/WilAtMSFT/battleshipTest/commit/9637abec78644dc175b7da18f7758e6c1c4d493d). Commit 9637abec78644dc175b7da18f7758e6c1c4d493d
 
-now we have a working battleship with the one fixed board.
-
-Next steps?? random generated board with the 5 standard ships. Save and load from file system [5]. Stop sending back board and instead save it. Create 2 players.
+Thats it for this tutorial. There is more you can do to continue your learning adventure. You could add random board generation or store board state in the [file system](https://www.w3schools.com/nodejs/ref_fs.asp). 
 
 Resources:
 
