@@ -34,7 +34,8 @@ Create a base project by running `express BattleShip --view=jade`. This will cre
      > cd BattleShip && npm install
 
    run the app:
-     > SET DEBUG=battleship:* & npm start```
+     > SET DEBUG=battleship:* & npm start
+```
 
 Now cd into BattleShip and run `npm install`.
 
@@ -42,14 +43,14 @@ What have we done so far? From what I understand, we know have a basic web serve
 
 Run `npm start` in the BattleShip folder and then hit `http://localhost:3000/` in the browser. We have a server responding! How is this stuff working. First open app.js. You'll see a bunch of require('blah') statements. This is loading up node modules[5].
 
-The routes and views folders are where we will spend most of our time. Two routes are defined in app.js. First is for the index which is the root route of `localhost:3000/` and the second is the users route at `localhost:3000/users`. There are index.js and users.js in the routes folder. Both those js files export modules. In app.js, you'll see `require('./routes/index');` and another for users. This makes those modules avaliable to app.js. The calls to `localhost:3000/` and `localhost:3000/users` get wired with `app.use('/', index);` and 
-`app.use('/users', users);` (see [6]). So when those endpoints are hit our server executes index.js or users.js. Users.js is simple as it just reurns with a string. Index.js is more interesting as it response with a jade templated view.
+The routes and views folders are where we will spend most of our time. Two routes are defined in app.js. First is for the index which is the root route of `localhost:3000/` and the second is the users route at `localhost:3000/users`. There are index.js and users.js in the routes folder. Both those js files export modules. In app.js, you'll see `var index = require('./routes/index');` and another for users. This makes those modules avaliable to app.js. The calls to `localhost:3000/` and `localhost:3000/users` get wired with `app.use('/', index);` and 
+`app.use('/users', users);` (see [6]). So when those endpoints are hit our server executes index.js or users.js. Users.js is simple as it just returns with a string. Index.js is more interesting as it response with a jade templated view.
 
-views folder currently has 3 views. Layout.jade is going to be what the other views extend/inherit from. The error.jad view is used in the app.js when things go wrong. The index.jade view is what express is rendering for you when you hit localhost:3000. You'll see in the index.js route file "res.render('index', { title: 'Express' });" which means change this jade template into html and sub in Express when you see the token #{title}. Got to localhost:3000 in chrome and hit F12 key. In the Elements sections, you will see the resulting html. You'll see where the layout.jade produced the header and the index.jad extended that filling out the body of the html with the title token replaced.
+The views folder currently has 3 views. Layout.jade is going to be what the other views extend/inherit from. The error.jade view is used in the app.js when things go wrong. The index.jade view is what express is rendering for you when you hit `localhost:3000`. You'll see in the index.js route file `res.render('index', { title: 'Express' });` which means change this jade template into html and sub in Express when you see the token #{title} - this render API[7] is the main reason I stuck with express. Go to `localhost:3000` in chrome and hit F12 key. In the Elements sections, you will see the resulting html. You'll see where the layout.jade produced the header and the index.jade extended that filling out the body of the html with the title token replaced.
 
 Now we have a rough idea of how this all works. This is the state for the first commit a5dc46e25346139ffceec465d81336127df47034
 
-Lets clean it up and get ride of users stuff. Lets add a battleship route and view. This is basic it just says welcom to battleship if you go to http://localhost:3000/battleship. commit 0f20e4d69b46546945fe595740686fd36ece696f
+Lets clean it up and get ride of users stuff. Lets add a battleship route and view. This is basic it just says welcome to battleship if you go to http://localhost:3000/battleship. commit 0f20e4d69b46546945fe595740686fd36ece696f
 
 Lets add a place for user to give us a coordinate. We will use a form (https://www.w3schools.com/tags/tag_form.asp) and send the input back with a fixed result message. I am not a formatting expert so it looks crude but it accomplished what I was aiming for. commit 0a6432a8cf7eebce6bb8082f2f39f30a67ddc9af
 
