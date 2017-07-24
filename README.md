@@ -1,6 +1,6 @@
 ## Battleship basic webapp tutorial: Learning the basics of javascript and express framework.
 
-I wanted to learn some basic javascript and build a webapp. I thought a Battleship like game would be straight forward. I am a backend developer mainly working in C# and SQL, so my gaol was to not use either of those. After asking around, using the [express][6] framework on node.js seemed the best approach so from there i just started digging. I started by following the tutorial at [closebrace][1] but I skipped all the mongoDb stuff as I just wanted a quick intro to the framework and getting started. After that it was a bit of web searching and experimenting.
+I wanted to learn some basic javascript and build a webapp. I thought a Battleship like game would be straight forward. I am a backend developer mainly working in C# and SQL, so my goal was to not use either of those. After asking around, using the [express][6] framework on node.js seemed the best approach so from there i just started digging. I started by following the tutorial at [closebrace][1] but I skipped all the mongoDb stuff as I just wanted a quick intro to the framework and getting started. After that it was a bit of web searching and experimenting.
 
 The following are the steps I used to create my Battleship app with corresponding commits. This repo alone will not be enough as it does not contain the node_modules and you need to install node/npm, but it does have the files so you can just copy them over after doing the initial express setup.
 
